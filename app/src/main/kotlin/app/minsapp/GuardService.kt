@@ -155,15 +155,15 @@ class GuardService : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         }
     }
 
-    /**
-     * Reads WhatsApp's background colour next to the first area, before anything is drawn on top,
-     * so the patches blend in whatever theme WhatsApp uses. Android 11+ only; older versions keep [themeColor].
-     */
     private fun colorIsStale(): Boolean {
         val sampledAt = colorSampledAt ?: return true
         return SystemClock.uptimeMillis() - sampledAt > COLOR_TTL_MS
     }
 
+    /**
+     * Reads WhatsApp's background colour next to the first area, before anything is drawn on top,
+     * so the patches blend in whatever theme WhatsApp uses. Android 11+ only; older versions keep [themeColor].
+     */
     @TargetApi(Build.VERSION_CODES.R)
     private fun sampleColor(area: Bounds) {
         sampling = true
@@ -188,8 +188,9 @@ class GuardService : AccessibilityService(), SharedPreferences.OnSharedPreferenc
         val buffer = screenshot.hardwareBuffer
         try {
             val hardware = Bitmap.wrapHardwareBuffer(buffer, screenshot.colorSpace) ?: return null
-            val software = hardware.copy(Bitmap.Config.ARGB_8888, false)
+            val software: Bitmap? = hardware.copy(Bitmap.Config.ARGB_8888, false)
             hardware.recycle()
+            if (software == null) return null
             val pixel = software.getPixel(x.coerceIn(0, software.width - 1), y.coerceIn(0, software.height - 1))
             software.recycle()
             return pixel
