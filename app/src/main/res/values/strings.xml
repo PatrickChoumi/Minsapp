@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Minsapp</string>
+    <string name="guard_label">Minsapp Gardien</string>
+    <string name="guard_description">Masque dans WhatsApp ce que tu as banni (Statuts, Chaînes, Meta AI…). Minsapp examine seulement l’écran de WhatsApp pour repérer ces éléments : il n’enregistre rien et n’a pas accès à Internet.</string>
+</resources>

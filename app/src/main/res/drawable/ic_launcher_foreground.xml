@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A chat bubble with a single bar: WhatsApp, minus the extras. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,32c-13.25,0 -24,9.4 -24,21c0,5.6 2.5,10.7 6.6,14.5L34,78l11.2,-5.2c2.8,0.8 5.7,1.2 8.8,1.2c13.25,0 24,-9.4 24,-21S67.25,32 54,32z" />
+    <path
+        android:fillColor="#1B5E45"
+        android:pathData="M43,51h22v4h-22z" />
+</vector>
